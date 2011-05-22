@@ -50,6 +50,8 @@ function skilletTUJ:GetExtraText(skill, recipe)
 	local spellId = skill.spellID
 	if spellId then
 		local scrollId = LES:GetScrollForEnchant(spellId)
+		if not scrollId then return end
+
 		TUJMarketInfo(scrollId,o)
 
 		local s1, s2 = "The Undermine Journal\n", "\n"
@@ -92,17 +94,20 @@ function skilletTUJ:GetExtraText(skill, recipe)
 			s2 = s2 .. o.quantity .. "\n"
 		end
 
-		local c = "|cff"
-		local margin = (o.market - o.reagentprice) / o.market
-		if margin < 0 then
-			c = c .. "ff0000"
-		elseif margin == 0 then
-			c = c .. "ffff00"
-		else
-			c = c .. "00ff00"
+		-- Profit margin
+		if o.market and o.reagentprice then
+			local c = "|cff"
+			local margin = (o.market - o.reagentprice) / o.market
+			if margin < 0 then
+				c = c .. "ff0000"
+			elseif margin == 0 then
+				c = c .. "ffff00"
+			else
+				c = c .. "00ff00"
+			end
+			s1 = s1 .. "Profit margin\n"
+			s2 = s2 .. c .. string.format("%0.02f", margin * 100) .. "|r%"
 		end
-		s1 = s1 .. "Profit margin\n"
-		s2 = s2 .. c .. string.format("%0.02f", margin * 100) .. "|r%"
 
 		return s1, s2
 	end
