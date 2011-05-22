@@ -1,0 +1,8 @@
+## Interface: 40100
+## Title: Skillet Enchant TUJ
+## Notes: A Skillet plugin to display TUJ information for Enchant Scrolls
+
+## Dependencies: Skillet
+
+LibEnchantScroll-1.0.lua
+Core.lua
