@@ -1,14 +1,29 @@
+--[[
+SkilletEnchantTUJ - A simple extension for Skillet that displays pricing information
+    from TheUndermineJournal for Enchanting Scrolls in the Skillet window
+
+   Copyright 2011 by Quaiche
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+--]]
+
 local LES = LibStub:GetLibrary("LibEnchantScroll-1.0")
 local skilletTUJ = {}
 local o = {}
-local timeoffset
 
-local GOLD="ffd100"
-local SILVER="e6e6e6"
-local COPPER="c8602c"
-local goldFmt = "|cff%s%d|cff000000.|cff%s%02d|cff000000.|cff%s%02d|r"
-local silverFmt = "|cff%s%d|cff000000.|cff%s%02d|r"
-local copperFmt = "|cff%s%d|r"
+local GOLD = "ffd100"
+local SILVER = "e6e6e6"
+local COPPER = "c8602c"
 
 local function FormatGold(coppers)
 	coppers = math.floor(tonumber(coppers) or 0)
@@ -17,11 +32,11 @@ local function FormatGold(coppers)
 	local c = coppers % 100
 
 	if g > 0 then
-		return string.format(goldFmt, GOLD, g, SILVER, s, COPPER, c)
+		return string.format("|cff%s%d|cff000000.|cff%s%02d|cff000000.|cff%s%02d|r", GOLD, g, SILVER, s, COPPER, c)
 	elseif s > 0 then
-		return string.format(silverFmt, SILVER, s, COPPER, c)
+		return string.format("|cff%s%d|cff000000.|cff%s%02d|r", SILVER, s, COPPER, c)
 	else
-		return string.format(copperFmt, COPPER, c)
+		return string.format("|cff%s%d|r", COPPER, c)
 	end
 
 end
@@ -95,4 +110,3 @@ end
 
 Skillet['SkilletTUJ'] = skilletTUJ
 Skillet:RegisterDisplayDetailPlugin("SkilletTUJ")
-

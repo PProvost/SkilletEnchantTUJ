@@ -1,8 +1,11 @@
 ## Interface: 40100
 ## Title: Skillet Enchant TUJ
 ## Notes: A Skillet plugin to display TUJ information for Enchant Scrolls
+## Author: Quaiche
+## Version: @project-version@
+## Dependencies: Skillet, TheUndermineJournal
 
-## Dependencies: Skillet
+## X-License: Apache-2.0
 
 LibEnchantScroll-1.0.lua
 Core.lua

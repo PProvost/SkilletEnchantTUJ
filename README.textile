@@ -1,0 +1,7 @@
+h2. Overview
+
+Adds pricing information to Skillet's Enchanting pane, showing how the scroll for that enchant is selling.
+
+h2. Requirements
+
+To use this addon you must have both "Skillet":http://wow.curse.com/downloads/wow-addons/details/skillet.aspx and "TheUndermineJournal":http://theunderminejournal.com/ installed and enabled.
